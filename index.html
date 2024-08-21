@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Suggestion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #e94560;
+            font-family: 'Press Start 2P', cursive;
+            text-align: center;
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        #suggestion {
+            font-size: 24px;
+            margin: 20px 0;
+            background-color: #16213e;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background-color: #0f3460;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e94560;
+            transform: scale(1.1);
+        }
+        select, input[type=range] {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #0f3460;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+        select:hover, input[type=range]:hover {
+            border-color: #e94560;
+        }
+        label {
+            font-size: 18px;
+        }
+        .filter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .filter-container > div {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1> Game Suggestion 🎮</h1>
+
+    <div class="filter-container">
+        <div>
+            <label for="game-type">Select Game Type:</label>
+            <select id="game-type">
+                <option value="all">All</option>
+                <option value="action">Action</option>
+                <option value="adventure">Adventure</option>
+                <option value="strategy">Strategy</option>
+                <option value="rpg">RPG</option>
+                <option value="simulation">Simulation</option>
+            </select>
+        </div>
+
+        <div>
+            <label for="rating">Minimum Rating:</label>
+            <input type="range" id="rating" min="0" max="10" step="1" value="0" oninput="document.getElementById('rating-value').innerText = this.value">
+            <span id="rating-value">0</span>/10
+        </div>
+    </div>
+
+    <div id="suggestion">Click the button to get a game suggestion!</div>
+    <button onclick="suggestGame()">Suggest a Game</button>
+
+    <script src="script.js"></script>
+    <script src="background.bat" defer></script>
+</body>
+</html>
